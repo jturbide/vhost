@@ -1,0 +1,12 @@
+#!/usr/bin/env php
+<?php
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+use Symfony\Component\Console\Application;
+use App\Command\GenerateVhostCommand;
+
+$app = new Application('Virtual Host Generator CLI', '1.0.0');
+$app->add(new GenerateVhostCommand());
+$app->setDefaultCommand('generate:vhost', true);
+$app->run();

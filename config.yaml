@@ -1,0 +1,76 @@
+platforms:
+  linux:
+    rootDir: /mnt/web/
+    hostsFile:
+      - /etc/hosts
+      - /mnt/etc/hosts
+
+    apacheEnabled: true
+    nginxEnabled: false
+
+    apache:
+      confFile: /etc/httpd/conf/httpd.conf
+      confDir: /etc/httpd/conf.d/vhosts
+      logDir: /var/log/httpd/
+      templateFile: "./templates/linux/apache.conf"
+      globalSnippet: |
+        # Server
+        ServerName localhost:80
+        
+        # Virtual hosts
+        IncludeOptional "/etc/httpd/conf.d/vhosts/*.conf"
+
+    nginx:
+      confFile: /etc/nginx/nginx.conf
+      confDir: /etc/nginx/conf/vhosts
+      templateFile: "./templates/linux/nginx.conf"
+      globalSnippet: |
+        # Virtual hosts
+        include /etc/nginx/conf.d/vhosts/*.conf;
+
+    services:
+      apache: httpd
+      nginx: nginx
+
+    defaultSsl:
+      certificate: /etc/pki/tls/certs/localhost.crt
+      certificateKey: /etc/pki/tls/private/localhost.key
+
+  windows:
+    rootDir: "C:\\Dev\\Web\\"
+    hostsFile: "C:\\Windows\\System32\\drivers\\etc\\hosts"
+
+    apacheEnabled: true
+    nginxEnabled: false
+
+    apache:
+      confFile: "C:\\httpd\\conf\\httpd.conf"
+      confDir: "C:\\httpd\\conf\\vhosts"
+      logDir: "C:\\httpd\\logs\\"
+      templateFile: "templates\\windows\\apache.conf"
+      globalSnippet: |
+        # Server
+        ServerName localhost:80
+        
+        # Virtual hosts
+        IncludeOptional "C:/httpd/conf/vhosts/*.conf"
+
+    nginx:
+      confFile: "C:\\nginx\\conf\\nginx.conf"
+      confDir: "C:\\nginx\\conf\\vhosts"
+      templateFile: "templates\\windows\\nginx.conf"
+      globalSnippet: |
+        # Virtual hosts
+        include C:\\httpd\\conf\\vhosts\\*.conf;
+
+    services:
+      apache: "Apache2.4"
+      nginx: "Nginx"
+
+    defaultSsl:
+      certificate: "C:\\httpd\\conf\\server.crt"
+      certificateKey: "C:\\httpd\\conf\\server.key"
+
+servers:
+  localhost: 127.0.0.1
+  web.local: 172.29.242.169

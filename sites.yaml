@@ -1,0 +1,9 @@
+sites:
+  - name: web.local
+    root:
+    php: "84"
+    server: web.local
+
+  - name: phpmyadmin.local
+    root: PhpMyAdmin/public/
+    php: "84"
