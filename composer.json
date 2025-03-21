@@ -2,6 +2,7 @@
   "name": "jturbide/vhost",
   "type": "project",
   "description": "A command-line tool built with Symfony Console that automatically generates Apache and Nginx virtual host configurations from YAML definitions, updates system hosts files, restarts web servers, and manages PHP caches (OPCache, APCu, sessions). Supports both Linux and Windows environments.",
+  "license": "BSD-3-Clause",
   "minimum-stability": "dev",
   "prefer-stable": true,
   "config": {
