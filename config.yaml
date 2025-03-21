@@ -44,16 +44,16 @@ platforms:
     nginxEnabled: false
 
     apache:
-      confFile: "C:\\httpd\\conf\\httpd.conf"
-      confDir: "C:\\httpd\\conf\\vhosts"
-      logDir: "C:\\httpd\\logs\\"
+      confFile: "C:\\Apache24\\conf\\httpd.conf"
+      confDir: "C:\\Apache24\\conf\\vhosts"
+      logDir: "C:\\Apache24\\logs\\"
       templateFile: "templates\\windows\\apache.conf"
       globalSnippet: |
         # Server
         ServerName localhost:80
         
         # Virtual hosts
-        IncludeOptional "C:/httpd/conf/vhosts/*.conf"
+        IncludeOptional "C:/Apache24/conf/vhosts/*.conf"
 
     nginx:
       confFile: "C:\\nginx\\conf\\nginx.conf"
@@ -61,15 +61,15 @@ platforms:
       templateFile: "templates\\windows\\nginx.conf"
       globalSnippet: |
         # Virtual hosts
-        include C:\\httpd\\conf\\vhosts\\*.conf;
+        include C:\\nginx\\conf\\vhosts\\*.conf;
 
     services:
       apache: "Apache2.4"
       nginx: "Nginx"
 
     defaultSsl:
-      certificate: "C:\\httpd\\conf\\server.crt"
-      certificateKey: "C:\\httpd\\conf\\server.key"
+      certificate: "C:\\Apache24\\conf\\server.crt"
+      certificateKey: "C:\\Apache24\\conf\\server.key"
 
 servers:
   localhost: 127.0.0.1
