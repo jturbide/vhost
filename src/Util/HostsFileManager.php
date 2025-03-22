@@ -15,8 +15,8 @@ class HostsFileManager
         
         $content = file_exists($hostsFile) ? file_get_contents($hostsFile) : '';
         
-        $begin = '# BEGIN WEB.LOCAL';
-        $end = '# END WEB.LOCAL';
+        $begin = '# BEGIN VHOST';
+        $end = '# END VHOST';
         
         $pattern = "/{$begin}[\s\S]*?{$end}/";
         
