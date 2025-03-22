@@ -37,10 +37,9 @@ class GenerateVhostCommand extends Command
     
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        $projectDir = __DIR__ . '/../../';
         $generator = new VhostGenerator(
-            configFile: $input->getOption('config') ?: $projectDir . 'config.yaml',
-            sitesFile: $input->getOption('sites') ?: $projectDir . 'sites.yaml',
+            configFile: $input->getOption('config'),
+            sitesFile: $input->getOption('sites'),
             os: $input->getOption('os') ?: PHP_OS_FAMILY,
             force: $input->getOption('force'),
             backup: !$input->getOption('no-backup'),

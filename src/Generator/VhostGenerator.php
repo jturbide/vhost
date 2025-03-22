@@ -39,8 +39,8 @@ class VhostGenerator
      * @param OutputInterface $output             Symfony Console output for logging.
      */
     public function __construct(
-        private string $configFile,
-        private string $sitesFile,
+        private ?string $configFile,
+        private ?string $sitesFile,
         private string $os,
         private bool $force,
         private bool $backup,
@@ -102,6 +102,10 @@ class VhostGenerator
         $config = $this->configFile;
         $sites = $this->sitesFile;
         
+        if (empty($config)) {
+            $config = getcwd() . '/config.yaml';
+        }
+        
         // 1) Load config.yaml
         if (!file_exists($config)) {
             $this->printError("Cannot find $config");
@@ -118,6 +122,10 @@ class VhostGenerator
         if (!isset($this->config['platforms'])) {
             $this->printError("Missing 'platforms' section in $config");
             exit(1);
+        }
+        
+        if (empty($sites)) {
+            $sites = getcwd() . '/sites.yaml';
         }
         
         // 2) Load sites.yaml
