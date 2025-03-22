@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Util;
+namespace Vhost\Util;
 
 class HostsFileManager
 {

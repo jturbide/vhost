@@ -2,7 +2,7 @@
 <?php
 
 use Symfony\Component\Console\Application;
-use App\Command\GenerateVhostCommand;
+use Vhost\Command\GenerateVhostCommand;
 
 $autoloadFiles = [
     __DIR__ . '/../vendor/autoload.php', // as a project

@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Generator;
+namespace Vhost\Generator;
 
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Yaml\Yaml;
-use App\Util\HostsFileManager;
+use Vhost\Util\HostsFileManager;
 
 /**
  * Class VhostGenerator

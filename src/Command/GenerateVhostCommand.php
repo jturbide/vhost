@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Command;
+namespace Vhost\Command;
 
-use App\Generator\VhostGenerator;
+use Vhost\Generator\VhostGenerator;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
